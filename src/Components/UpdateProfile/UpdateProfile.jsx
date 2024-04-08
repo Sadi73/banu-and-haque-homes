@@ -5,7 +5,6 @@ const UpdateProfile = () => {
     return (
         <div>
             <Navbar/>
-            wdkm
         </div>
     );
 };
