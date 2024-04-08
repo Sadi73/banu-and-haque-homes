@@ -1,12 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { AiFillGoogleCircle } from 'react-icons/ai';
-// import './styles.css'
 import { Link } from 'react-router-dom';
 import Navbar from '../NavBar/Navbar';
+import { AuthContext } from '../../Providers/AuthProvider';
 
 
 const Login = () => {
+    const { signInWithEmail, googleSignIn } = useContext(AuthContext);
 
+    const handleGoogleSignIn = () => {
+        googleSignIn()
+            .then(result => console.log(result))
+            .catch(error => console.log(error))
+    }
 
     return (
         <>
@@ -44,7 +50,7 @@ const Login = () => {
                         <button>
                             <AiFillGoogleCircle
                                 className='text-white text-3xl'
-                            // onClick={signInWithGoogle}
+                                onClick={handleGoogleSignIn}
 
                             />
                         </button>
