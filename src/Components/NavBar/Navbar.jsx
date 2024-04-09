@@ -3,13 +3,12 @@ import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProvider';
 
 const Navbar = () => {
-    const { user, logOut } = useContext(AuthContext);
+    const { user, logOut, loading } = useContext(AuthContext);
 
     const navList =
         <>
             <li><NavLink to='/'>Home</NavLink></li>
             <li><NavLink to='/update-profile'>Update Profile</NavLink></li>
-            <li><NavLink to='/login'>Login</NavLink></li>
         </>;
 
     const handleLogOut = () => {

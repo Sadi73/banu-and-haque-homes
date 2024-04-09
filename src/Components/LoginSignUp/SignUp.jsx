@@ -1,64 +1,128 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { AiFillGoogleCircle } from 'react-icons/ai';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Navbar from '../NavBar/Navbar';
+import { useFormik } from 'formik';
+import * as Yup from "yup";
+import ErrorTooltip from '../ErrorTooltip/ErrorTooltip';
+import { AuthContext } from '../../Providers/AuthProvider';
 
 const SignUp = () => {
+    const navigate = useNavigate()
 
+    const { createUserWithEmail } = useContext(AuthContext);
+
+    const { values, setValues, handleSubmit, handleBlur, handleChange, errors, setErrors, touched } = useFormik({
+        initialValues: {
+            fullName: '',
+            email: '',
+            password: '',
+            confirmPassword: ''
+        },
+        validationSchema: Yup.object({
+            fullName: Yup.string().required("Name is Required"),
+            email: Yup.string().required("Email is Required"),
+            password: Yup.string()
+                .required("Password is Required")
+                .min(6, "Password must be at least 6 characters long"),
+            confirmPassword: Yup.string()
+                .required("Confirm Password is Required")
+                .oneOf([Yup.ref('password'), null], 'Passwords must match'),
+
+        }),
+        onSubmit: (values) => {
+            createUserWithEmail(values?.email, values?.password)
+                .then(result => {
+                    console.log(result.user);
+                    navigate('/')
+                })
+                .catch(error => console.log(error))
+        }
+    });
 
     return (
         <>
-            <Navbar />
             <div className='container h-screen relative'>
 
                 <div className='form-container bg-black bg-opacity-40 md:max-w-[500px] p-12 absolute md:right-40'>
                     <h1 className='text-white text-5xl text-center mb-10 font-rancho'>Sign <span className='text-[#E3B577]'>Up!</span></h1>
 
-                    <form >
-                        <input
-                            type="text"
-                            name='firstName'
-                            className='w-full mb-4 py-2 pl-3 rounded-lg'
-                            placeholder='Enter Your First name'
-                        // value={values?.firstName}
-                        // onChange={handleChange}
-                        />
+                    <form onSubmit={handleSubmit}>
 
-                        <input
-                            type="text"
-                            name='lastName'
-                            className='w-full mb-4 py-2 pl-3 rounded-lg'
-                            placeholder='Enter Your Last name'
-                        // value={values?.lastName}
-                        // onChange={handleChange}
-                        />
+                        <div>
+                            <input
+                                type="text"
+                                name='fullName'
+                                className='w-full mb-4 py-2 pl-3 rounded-lg'
+                                placeholder='Enter Your Name'
+                                value={values?.fullName}
+                                onChange={handleChange}
+                            />
+                            {touched.fullName && errors.fullName && (
+
+                                <ErrorTooltip
+                                    content={errors.fullName}
+                                    placement="right"
+                                />
+                            )}
+                        </div>
 
                         <input
                             type="text"
                             name='email'
                             className='w-full mb-4 py-2 pl-3 rounded-lg'
                             placeholder='Enter Your Email'
-                        // value={values?.email}
-                        // onChange={handleChange}
+                            value={values?.email}
+                            onChange={handleChange}
                         />
+                        {touched.email && errors.email && (
+                            <span
+                            // style={customError}
+                            >
+                                <ErrorTooltip
+                                    content={errors.email}
+                                    placement="right"
+                                />
+                            </span>
+                        )}
 
                         <input
                             type="text"
                             name='password'
                             className='w-full mb-4 py-2 pl-3 rounded-lg'
                             placeholder='Enter Password'
-                        // value={values?.password}
-                        // onChange={handleChange}
+                            value={values?.password}
+                            onChange={handleChange}
                         />
+                        {touched.password && errors.password && (
+                            <span
+                            // style={customError}
+                            >
+                                <ErrorTooltip
+                                    content={errors.password}
+                                    placement="right"
+                                />
+                            </span>
+                        )}
 
                         <input
                             type="text"
-                            name='password'
+                            name='confirmPassword'
                             className='w-full mb-4 py-2 pl-3 rounded-lg'
                             placeholder='Confirm Password'
-                        // value={values?.password}
-                        // onChange={handleChange}
+                            value={values?.confirmPassword}
+                            onChange={handleChange}
                         />
+                        {touched.confirmPassword && errors.confirmPassword && (
+                            <span
+                            // style={customError}
+                            >
+                                <ErrorTooltip
+                                    content={errors.confirmPassword}
+                                    placement="right"
+                                />
+                            </span>
+                        )}
 
                         <button type='submit' className='common-button bg-[#E3B577] w-full py-3 rounded-lg'>Submit</button>
 
