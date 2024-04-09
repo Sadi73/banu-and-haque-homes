@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import { AiFillGoogleCircle } from 'react-icons/ai';
 import { Link, useNavigate } from 'react-router-dom';
-import Navbar from '../NavBar/Navbar';
 import { useFormik } from 'formik';
 import * as Yup from "yup";
 import ErrorTooltip from '../ErrorTooltip/ErrorTooltip';
@@ -59,7 +58,6 @@ const SignUp = () => {
                                 onChange={handleChange}
                             />
                             {touched.fullName && errors.fullName && (
-
                                 <ErrorTooltip
                                     content={errors.fullName}
                                     placement="right"
@@ -76,14 +74,10 @@ const SignUp = () => {
                             onChange={handleChange}
                         />
                         {touched.email && errors.email && (
-                            <span
-                            // style={customError}
-                            >
-                                <ErrorTooltip
-                                    content={errors.email}
-                                    placement="right"
-                                />
-                            </span>
+                            <ErrorTooltip
+                                content={errors.email}
+                                placement="right"
+                            />
                         )}
 
                         <input
@@ -95,14 +89,10 @@ const SignUp = () => {
                             onChange={handleChange}
                         />
                         {touched.password && errors.password && (
-                            <span
-                            // style={customError}
-                            >
-                                <ErrorTooltip
-                                    content={errors.password}
-                                    placement="right"
-                                />
-                            </span>
+                            <ErrorTooltip
+                                content={errors.password}
+                                placement="right"
+                            />
                         )}
 
                         <input
@@ -114,28 +104,23 @@ const SignUp = () => {
                             onChange={handleChange}
                         />
                         {touched.confirmPassword && errors.confirmPassword && (
-                            <span
-                            // style={customError}
-                            >
-                                <ErrorTooltip
-                                    content={errors.confirmPassword}
-                                    placement="right"
-                                />
-                            </span>
+                            <ErrorTooltip
+                                content={errors.confirmPassword}
+                                placement="right"
+                            />
                         )}
 
                         <button type='submit' className='common-button bg-[#E3B577] w-full py-3 rounded-lg'>Submit</button>
 
-                        <div className="divider">OR</div>
-
-
-                        <div className='flex justify-center items-center gap-2'>
-                            <button><AiFillGoogleCircle className='text-white text-3xl' /></button>
-                            {/* <button><FaFacebook className='text-white text-2xl' /></button> */}
-                        </div>
-
-
                     </form>
+
+                    <div className="divider">OR</div>
+
+
+                    <div className='flex justify-center items-center gap-2'>
+                        <button><AiFillGoogleCircle className='text-white text-3xl' /></button>
+                        {/* <button><FaFacebook className='text-white text-2xl' /></button> */}
+                    </div>
 
                     <div>
                         <p className='text-white text-center mt-4'>Already have an account? <Link to='/login' className='text-[#E3B577]'>Login</Link></p>

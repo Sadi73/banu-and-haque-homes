@@ -1,9 +1,10 @@
 import React from 'react';
-import Navbar from '../NavBar/Navbar';
+import Slider from '../Slider/Slider';
 
 const Home = () => {
     return (
         <div>
+            <Slider/>
         </div>
     );
 };
