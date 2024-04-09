@@ -8,6 +8,7 @@ import UpdateProfile from './Components/UpdateProfile/UpdateProfile';
 import Login from './Components/LoginSignUp/Login';
 import SignUp from './Components/LoginSignUp/SignUp';
 import AuthProvider from './Providers/AuthProvider';
+import Details from './Components/Details/Details';
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
       {
         path: "/sign-up",
         element: <SignUp />,
+      },
+      {
+        path: "/details/:id",
+        element: <Details />,
       },
     ],
   },

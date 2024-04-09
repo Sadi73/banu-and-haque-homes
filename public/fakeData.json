@@ -1,0 +1,101 @@
+[
+    {
+        "estate_title": "Serene Haven",
+        "id": "1",
+        "segment_name": "Single Family Homes",
+        "description": "A charming single-family home nestled in a quiet neighborhood. Features a spacious backyard and modern interior design.",
+        "price": "$450,000",
+        "status": "Sale",
+        "area": "2,200 sqft",
+        "location": "123 Oak Street, Springfield",
+        "image": "./images/cardImg1.jpg"
+    },
+    {
+        "estate_title": "Urban Retreat",
+        "id": "2",
+        "segment_name": "Townhouses",
+        "description": "Stylish townhouse in the heart of the city. Boasts contemporary architecture, rooftop terrace, and proximity to local amenities.",
+        "price": "$650,000",
+        "status": "Sale",
+        "area": "1,800 sqft",
+        "location": "456 Elm Avenue",
+        "image": "./images/cardImg2.jpg"
+    },
+    {
+        "estate_title": "Tranquil Abode",
+        "id": "3",
+        "segment_name": "Apartments",
+        "description": "Modern apartment offering breathtaking views of the city skyline. Comes fully furnished with state-of-the-art amenities.",
+        "price": "$800,000",
+        "status": "Sale",
+        "area": "1,500 sqft",
+        "location": "789 Maple Avenue, Downtown",
+        "image": "./images/cardImg3.jpg"
+    },
+    {
+        "estate_title": "Campus Retreat",
+        "id": "4",
+        "segment_name": "Student Housing",
+        "description": "Convenient student housing located within walking distance of campus. Fully equipped with study areas and recreational facilities.",
+        "price": "$300,000",
+        "status": "Sale",
+        "area": "1,000 sqft",
+        "location": "101 University Drive",
+        "image": "./images/cardImg4.jpg"
+    },
+    {
+        "estate_title": "Coastal Escape",
+        "id": "5",
+        "segment_name": "Vacation Rental",
+        "description": "Beachfront villa offering unparalleled luxury and relaxation. Private pool, panoramic ocean views, and direct beach access.",
+        "price": "$1,200/night",
+        "status": "Rent",
+        "area": "2,500 sqft",
+        "location": "Seaside Villa, 123 Ocean Drive",
+        "image": "./images/cardImg5.jpg"
+    },
+    {
+        "estate_title": "Rustic Retreat",
+        "id": "6",
+        "segment_name": "Single Family Homes",
+        "description": "Quaint country home surrounded by picturesque landscapes. Features a cozy fireplace and spacious outdoor deck.",
+        "price": "$350,000",
+        "status": "Sale",
+        "area": "1,800 sqft",
+        "location": "234 Pine Road, Countryside",
+        "image": "./images/cardImg6.jpg"
+    },
+    {
+        "estate_title": "City Lights Condo",
+        "id": "7",
+        "segment_name": "Apartments",
+        "description": "Luxurious high-rise condo offering stunning views of the city skyline. Access to on-site gym, pool, and concierge services.",
+        "price": "$1,000,000",
+        "status": "Sale",
+        "area": "1,200 sqft",
+        "location": "567 Main Street, Downtown",
+        "image": "./images/cardImg7.jpg"
+    },
+    {
+        "estate_title": "Charming Brownstone",
+        "id": "8",
+        "segment_name": "Townhouses",
+        "description": "Classic brownstone townhouse in a historic neighborhood. Elegant interior with original architectural details.",
+        "price": "$750,000",
+        "status": "Sale",
+        "area": "2,000 sqft",
+        "location": "789 Chestnut Avenue",
+        "image": "./images/cardImg8.jpg"
+    },
+    {
+        "estate_title": "Lakefront Cabin",
+        "id": "9",
+        "segment_name": "Vacation Rental",
+        "description": "Cozy cabin nestled along the shores of a tranquil lake. Perfect for fishing, kayaking, and enjoying nature.",
+        "price": "$250/night",
+        "status": "Rent",
+        "area": "1,000 sqft",
+        "location": "101 Lakeview Drive",
+        "image": "./images/cardImg9.jpg"
+    }
+]
