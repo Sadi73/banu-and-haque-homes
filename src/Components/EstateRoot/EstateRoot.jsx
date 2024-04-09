@@ -9,7 +9,7 @@ const EstateRoot = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        fetch('./fakeData.json')
+        fetch('/fakeData.json')
             .then(response => response.json())
             .then(data => setAllEstates(data));
     }, [])
@@ -22,7 +22,7 @@ const EstateRoot = () => {
             </p>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-[90%] mx-auto'>
                 {allEstates.map(estate =>
-                    <div className="card card-compact  bg-base-100 shadow-xl">
+                    <div key={estate?.id} className="card card-compact  bg-base-100 shadow-xl">
                         <figure><img src={estate?.image} className='w-full h-64' alt="Shoes" /></figure>
                         <div className="p-4 text-sm" >
                             <p>{estate?.price}</p>

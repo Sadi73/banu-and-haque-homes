@@ -8,7 +8,7 @@
         "status": "Sale",
         "area": "2,200 sqft",
         "location": "123 Oak Street, Springfield",
-        "image": "./images/cardImg1.jpg"
+        "image": "/images/cardImg1.jpg"
     },
     {
         "estate_title": "Urban Retreat",
@@ -19,7 +19,7 @@
         "status": "Sale",
         "area": "1,800 sqft",
         "location": "456 Elm Avenue",
-        "image": "./images/cardImg2.jpg"
+        "image": "/images/cardImg2.jpg"
     },
     {
         "estate_title": "Tranquil Abode",
@@ -30,7 +30,7 @@
         "status": "Sale",
         "area": "1,500 sqft",
         "location": "789 Maple Avenue, Downtown",
-        "image": "./images/cardImg3.jpg"
+        "image": "/images/cardImg3.jpg"
     },
     {
         "estate_title": "Campus Retreat",
@@ -41,7 +41,7 @@
         "status": "Sale",
         "area": "1,000 sqft",
         "location": "101 University Drive",
-        "image": "./images/cardImg4.jpg"
+        "image": "/images/cardImg4.jpg"
     },
     {
         "estate_title": "Coastal Escape",
@@ -52,7 +52,7 @@
         "status": "Rent",
         "area": "2,500 sqft",
         "location": "Seaside Villa, 123 Ocean Drive",
-        "image": "./images/cardImg5.jpg"
+        "image": "/images/cardImg5.jpg"
     },
     {
         "estate_title": "Rustic Retreat",
@@ -63,7 +63,7 @@
         "status": "Sale",
         "area": "1,800 sqft",
         "location": "234 Pine Road, Countryside",
-        "image": "./images/cardImg6.jpg"
+        "image": "/images/cardImg6.jpg"
     },
     {
         "estate_title": "City Lights Condo",
@@ -74,7 +74,7 @@
         "status": "Sale",
         "area": "1,200 sqft",
         "location": "567 Main Street, Downtown",
-        "image": "./images/cardImg7.jpg"
+        "image": "/images/cardImg7.jpg"
     },
     {
         "estate_title": "Charming Brownstone",
@@ -85,7 +85,7 @@
         "status": "Sale",
         "area": "2,000 sqft",
         "location": "789 Chestnut Avenue",
-        "image": "./images/cardImg8.jpg"
+        "image": "/images/cardImg8.jpg"
     },
     {
         "estate_title": "Lakefront Cabin",
@@ -96,6 +96,6 @@
         "status": "Rent",
         "area": "1,000 sqft",
         "location": "101 Lakeview Drive",
-        "image": "./images/cardImg9.jpg"
+        "image": "/images/cardImg9.jpg"
     }
 ]
