@@ -16,8 +16,6 @@ const Details = () => {
             });
     }, [])
 
-    console.log(details)
-
     return (
         <div className="card lg:card-side bg-base-100 shadow-xl">
             <figure><img src={details?.image} alt="Album" /></figure>

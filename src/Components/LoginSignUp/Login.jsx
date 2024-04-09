@@ -1,13 +1,13 @@
 import React, { useContext } from 'react';
 import { AiFillGoogleCircle } from 'react-icons/ai';
-import { Link, useNavigate } from 'react-router-dom';
-import Navbar from '../NavBar/Navbar';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProvider';
 import { useFormik } from 'formik';
 import * as Yup from "yup";
 
 
 const Login = () => {
+    const location = useLocation();
     const navigate = useNavigate();
     const { signInWithEmail, googleSignIn } = useContext(AuthContext);
 
@@ -23,8 +23,7 @@ const Login = () => {
         onSubmit: (values) => {
             signInWithEmail(values?.email, values?.password)
                 .then(result => {
-                    console.log(result.user);
-                    navigate('/')
+                    navigate(location?.state ? location?.state : '/');
                 })
                 .catch(error => console.log(error))
         }
@@ -33,11 +32,12 @@ const Login = () => {
     const handleGoogleSignIn = () => {
         googleSignIn()
             .then(result => {
-                console.log(result);
-                navigate('/');
+                navigate(location?.state ? location?.state : '/');
             })
             .catch(error => console.log(error))
     };
+
+    console.log(location)
 
     return (
         <>
