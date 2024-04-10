@@ -3,6 +3,7 @@ import { Outlet } from "react-router-dom";
 import '../../AllStyles.css'
 import Navbar from '../NavBar/Navbar';
 import { AuthContext } from '../../Providers/AuthProvider';
+import Footer from '../Footer/Footer';
 
 const Root = () => {
     const { loading } = useContext(AuthContext);
@@ -21,6 +22,7 @@ const Root = () => {
                 <>
                     <Navbar />
                     <Outlet />
+                    <Footer/>
                 </>
             }
         </div>

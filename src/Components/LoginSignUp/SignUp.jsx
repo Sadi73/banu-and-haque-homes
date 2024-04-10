@@ -41,7 +41,7 @@ const SignUp = () => {
 
     return (
         <>
-            <div className='container h-screen relative'>
+            <div className='container h-screen relative py-20'>
 
                 <div className='form-container bg-black bg-opacity-40 md:max-w-[500px] p-12 absolute md:right-40'>
                     <h1 className='text-white text-5xl text-center mb-10 font-rancho'>Sign <span className='text-[#E3B577]'>Up!</span></h1>

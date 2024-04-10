@@ -24,7 +24,7 @@ const EstateRoot = () => {
                 {allEstates.map(estate =>
                     <div key={estate?.id} className="card card-compact  bg-base-100 shadow-xl">
                         <figure><img src={estate?.image} className='w-full h-64' alt="Shoes" /></figure>
-                        <div className="p-4 text-sm" >
+                        <div className="card-body" >
                             <p>{estate?.price}</p>
                             <div className='flex items-center justify-between'>
                                 <h2 className="card-title">{estate?.estate_title}</h2>
