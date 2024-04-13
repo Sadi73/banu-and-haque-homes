@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProvider';
+import './Navbar.css';
 
 const Navbar = () => {
     const { user, logOut, loading } = useContext(AuthContext);
@@ -28,7 +29,7 @@ const Navbar = () => {
                         {navList}
                     </ul>
                 </div>
-                <a className="btn btn-ghost text-xl">Banu N Haque</a>
+                <Link className="btn btn-ghost text-xl" to='/'><span className='text-green-700'>Banu</span> N <span className='text-green-700'>Haque</span></Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">

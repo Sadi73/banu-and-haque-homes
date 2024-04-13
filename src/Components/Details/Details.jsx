@@ -17,8 +17,8 @@ const Details = () => {
     }, [])
 
     return (
-        <div className="card lg:card-side bg-base-100 shadow-xl py-20">
-            <figure><img src={details?.image} alt="Album" /></figure>
+        <div className="card lg:card-side bg-base-100 shadow-xl py-20 md:w-[80%] mx-auto py-30 mb-20 min-h-[500px]">
+            <figure><img src={details?.image} alt="Album" className='h-96 ml-10'/></figure>
             <div className="card-body">
                 <h2 className="card-title">{details?.estate_title}</h2>
                 <p>{details?.description}</p>

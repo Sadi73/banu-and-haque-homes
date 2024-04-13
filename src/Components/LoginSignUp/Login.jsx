@@ -1,5 +1,7 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { AiFillGoogleCircle } from 'react-icons/ai';
+import { RxEyeOpen } from "react-icons/rx";
+import { GoEyeClosed } from "react-icons/go";
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProvider';
 import { useFormik } from 'formik';
@@ -9,6 +11,9 @@ import * as Yup from "yup";
 const Login = () => {
     const location = useLocation();
     const navigate = useNavigate();
+
+    const [showPassword, setShowPassword] = useState(false);
+
     const { signInWithEmail, googleSignIn } = useContext(AuthContext);
 
     const { values, setValues, handleSubmit, handleBlur, handleChange, errors, setErrors, touched } = useFormik({
@@ -55,13 +60,19 @@ const Login = () => {
                             onChange={handleChange}
                         />
                         <input
-                            type="text"
+                            type={showPassword ? "text" : "password"}
                             name='password'
                             className='w-full mb-4 p-2'
                             placeholder='Enter Password'
                             value={values?.password}
                             onChange={handleChange}
                         />
+                        <span className='absolute bottom-[240px] right-[55px]' onClick={() => setShowPassword(!showPassword)}>
+                            {showPassword ?
+                                <GoEyeClosed /> :
+                                <RxEyeOpen />
+                            }
+                        </span>
 
                         <button type='submit' className='common-button bg-[#E3B577] w-full py-3 '>Submit</button>
 
