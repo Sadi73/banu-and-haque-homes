@@ -21,8 +21,8 @@ const EstateRoot = () => {
             </p>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-[90%] mx-auto'>
                 {allEstates.map(estate =>
-                    <div data-aos="fade-up">
-                        <div key={estate?.id} className="card card-compact  bg-base-100 shadow-xl h-[500px]">
+                    <div key={estate?.id} data-aos="fade-up">
+                        <div className="card card-compact  bg-base-100 shadow-xl h-[500px]">
                             <figure><img src={estate?.image} className='w-full h-64' alt="estate-image" /></figure>
                             <p className='absolute bg-green-500 text-white py-2 px-4 font-bold rounded-lg top-2 right-2'>{estate?.status}</p>
                             <div className="card-body" >
