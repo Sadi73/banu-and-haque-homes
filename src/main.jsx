@@ -11,6 +11,7 @@ import AuthProvider from './Providers/AuthProvider';
 import Details from './Components/Details/Details';
 import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
 import ErrorPage from './Components/ErrorPage/ErrorPage';
+import Reviews from './Components/Reviews/Reviews';
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
       {
         path: "/update-profile",
         element: <PrivateRoute><UpdateProfile /></PrivateRoute>,
+      },
+      {
+        path: "/reviews",
+        element: <PrivateRoute><Reviews /></PrivateRoute>,
       },
       {
         path: "/login",

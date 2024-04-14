@@ -1,0 +1,90 @@
+[
+    {
+        "id": 1,
+        "customer_name": "John Doe",
+        "property_type": "Home",
+        "rating": 4.5,
+        "date": "2024-04-14",
+        "review_text": "I'm really impressed with this home. It's spacious, well-maintained, and located in a great neighborhood. The backyard is perfect for hosting gatherings, and the kitchen is beautifully updated. The only downside is that the price is a bit high.",
+        "helpful_votes": 15,
+        "verified_purchase": true,
+        "image": "./images/Person/1.jpeg"
+    },
+    {
+        "id": 2,
+        "customer_name": "Alice Smith",
+        "property_type": "Apartment",
+        "rating": 4.0,
+        "date": "2024-04-12",
+        "review_text": "This apartment is fantastic! It's modern, cozy, and has a stunning view of the city skyline. The building amenities are top-notch, and the location is convenient for commuting. The only minor issue is that the elevator can be slow during peak hours.",
+        "helpful_votes": 10,
+        "verified_purchase": true,
+        "image": "./images/Person/2.jpeg"
+    },
+    {
+        "id": 3,
+        "customer_name": "Emily Johnson",
+        "property_type": "Office Space",
+        "rating": 3.5,
+        "date": "2024-04-10",
+        "review_text": "The office space is decent overall. It's well-lit and has ample parking for employees. However, the layout is a bit awkward, and there's some noise from nearby construction that can be distracting at times. Also, the rent is a bit on the higher side compared to similar spaces in the area.",
+        "helpful_votes": 7,
+        "verified_purchase": false,
+        "image": "./images/Person/3.jpeg"
+    },
+    {
+        "id": 4,
+        "customer_name": "Michael Brown",
+        "property_type": "Commercial Building",
+        "rating": 5.0,
+        "date": "2024-04-08",
+        "review_text": "This commercial building exceeded my expectations! It's spacious, well-designed, and has excellent visibility from the main road. The location is perfect for my business, and the price was very competitive. Overall, I'm extremely satisfied with my purchase.",
+        "helpful_votes": 20,
+        "verified_purchase": true,
+        "image": "./images/Person/4.jpeg"
+    },
+    {
+        "id": 5,
+        "customer_name": "Sophia Lee",
+        "property_type": "Vacation Rental",
+        "rating": 4.8,
+        "date": "2024-04-06",
+        "review_text": "Our family had a wonderful stay at this vacation rental! The property was clean, well-furnished, and had amazing views of the beach. The rental process was smooth, and the property manager was very helpful with any questions we had. We can't wait to come back next year!",
+        "helpful_votes": 12,
+        "verified_purchase": true,
+        "image": "./images/Person/5.jpeg"
+    },
+    {
+        "id": 6,
+        "customer_name": "David Wilson",
+        "property_type": "Warehouse",
+        "rating": 4.2,
+        "date": "2024-04-04",
+        "review_text": "This warehouse is perfect for our storage needs. It's spacious, well-maintained, and the loading docks are convenient for shipments. The only issue we've encountered is that the lighting in some areas is a bit dim, but overall, we're satisfied with the property.",
+        "helpful_votes": 8,
+        "verified_purchase": true,
+        "image": "./images/Person/6.jpeg"
+    },
+    {
+        "id": 7,
+        "customer_name": "Emma Taylor",
+        "property_type": "Land",
+        "rating": 4.6,
+        "date": "2024-04-02",
+        "review_text": "We purchased this piece of land for development, and we're thrilled with the location and potential it offers. The soil quality is excellent for farming, and the views are breathtaking. The only downside is that it's a bit farther from town than we initially wanted.",
+        "helpful_votes": 11,
+        "verified_purchase": false,
+        "image": "./images/Person/7.jpeg"
+    },
+    {
+        "id": 8,
+        "customer_name": "Daniel Martinez",
+        "property_type": "Retail Space",
+        "rating": 4.3,
+        "date": "2024-03-30",
+        "review_text": "This retail space is ideal for our business. It's located in a busy shopping district with plenty of foot traffic. The layout is perfect for displaying our merchandise, and the rent is reasonable considering the prime location. Overall, we're very satisfied.",
+        "helpful_votes": 9,
+        "verified_purchase": true,
+        "image": "./images/Person/8.jpeg"
+    }
+]
