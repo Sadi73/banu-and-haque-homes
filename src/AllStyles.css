@@ -1,5 +1,7 @@
 .custom-error {
     float: right;
     position: absolute;
-    /* right: 10px; */
+    top: 13px;
+    color: red;
+    font-size: 1.2rem;
 }

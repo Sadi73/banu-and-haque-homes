@@ -22,7 +22,6 @@ const UpdateProfile = () => {
 
         }),
         onSubmit: (values) => {
-            // console.log(values);
             updateProfile(auth.currentUser, {
                 displayName: values?.fullName,
                 photoURL: values?.photoURL
@@ -32,21 +31,20 @@ const UpdateProfile = () => {
         }
     });
 
-    // console.log(user)
 
     return (
-        <div className='container h-screen relative py-20'>
+        <div className='container py-20'>
 
-            <div className='form-container bg-black bg-opacity-40 md:max-w-[500px] p-12 absolute md:right-40'>
+            <div className='form-container bg-black bg-opacity-40 md:max-w-[500px] p-12 mx-auto'>
                 <h1 className='text-white text-5xl text-center mb-10 font-rancho'>Update <span className='text-[#E3B577]'>Profile</span></h1>
 
                 <form onSubmit={handleSubmit}>
 
-                    <div>
+                    <div className='relative'>
                         <input
                             type="text"
                             name='fullName'
-                            className='w-full mb-4 py-2 pl-3 rounded-lg'
+                            className={`w-full mb-4 py-2 pl-3 rounded-lg ${touched.fullName && errors.fullName && 'border-2 border-red-500'}`}
                             placeholder='Enter Your Name'
                             value={values?.fullName}
                             onChange={handleChange}
@@ -69,24 +67,26 @@ const UpdateProfile = () => {
                         disabled
                     />
 
-                    <input
-                        type="text"
-                        name='photoURL'
-                        className='w-full mb-4 py-2 pl-3 rounded-lg'
-                        placeholder='Enter photoURL'
-                        value={values?.photoURL}
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                    />
-                    {touched.photoURL && errors.photoURL && (
-                        <ErrorTooltip
-                            content={errors.photoURL}
-                            placement="right"
+                    <div className='relative'>
+                        <input
+                            type="text"
+                            name='photoURL'
+                            className={`w-full mb-4 py-2 pl-3 rounded-lg ${touched.photoURL && errors.photoURL && 'border-2 border-red-500'}`}
+                            placeholder='Enter photoURL'
+                            value={values?.photoURL}
+                            onChange={handleChange}
+                            onBlur={handleBlur}
                         />
-                    )}
+                        {touched.photoURL && errors.photoURL && (
+                            <ErrorTooltip
+                                content={errors.photoURL}
+                                placement="right"
+                            />
+                        )}
+                    </div>
 
 
-                    <button type='submit' className='common-button bg-[#E3B577] w-full py-3 rounded-lg'>Submit</button>
+                    <button type='submit' className='common-button bg-[#E3B577] w-full py-3 rounded-lg'>Update</button>
 
                 </form>
             </div>

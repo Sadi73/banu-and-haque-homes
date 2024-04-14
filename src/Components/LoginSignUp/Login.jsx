@@ -6,6 +6,7 @@ import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProvider';
 import { useFormik } from 'formik';
 import * as Yup from "yup";
+import ErrorTooltip from '../ErrorTooltip/ErrorTooltip';
 
 
 const Login = () => {
@@ -45,36 +46,56 @@ const Login = () => {
 
     return (
         <>
-            <div className='container h-screen relative py-20'>
+            <div className='container py-20'>
 
-                <div className='form-container bg-black bg-opacity-40 md:max-w-[500px] p-12 absolute md:right-40'>
+                <div className='form-container bg-black bg-opacity-40 md:max-w-[500px] p-12 mx-auto'>
                     <h1 className='text-white text-5xl text-center mb-10 font-rancho'>Log <span className='text-[#E3B577]'>In!</span></h1>
 
                     <form onSubmit={handleSubmit}>
-                        <input
-                            type="text"
-                            name='email'
-                            className='w-full mb-4 p-2'
-                            placeholder='Enter Your Email'
-                            value={values?.email}
-                            onChange={handleChange}
-                        />
-                        <input
-                            type={showPassword ? "text" : "password"}
-                            name='password'
-                            className='w-full mb-4 p-2'
-                            placeholder='Enter Password'
-                            value={values?.password}
-                            onChange={handleChange}
-                        />
-                        <span className='absolute bottom-[240px] right-[55px]' onClick={() => setShowPassword(!showPassword)}>
-                            {showPassword ?
-                                <GoEyeClosed /> :
-                                <RxEyeOpen />
-                            }
-                        </span>
+                        <div className='relative'>
+                            <input
+                                type="text"
+                                name='email'
+                                className={`w-full mb-4  py-2 pl-3  rounded-lg ${touched.email && errors.email ? 'border-2 border-red-500' : ''}`}
+                                placeholder='Enter Your Email'
+                                value={values?.email}
+                                onChange={handleChange}
+                                onBlur={handleBlur}
+                            />
+                            {touched.email && errors.email && (
+                                <ErrorTooltip
+                                    content={errors.email}
+                                    placement="right"
+                                />
+                            )}
+                        </div>
 
-                        <button type='submit' className='common-button bg-[#E3B577] w-full py-3 '>Submit</button>
+                        <div className='relative'>
+                            <input
+                                type={showPassword ? "text" : "password"}
+                                name='password'
+                                className={`w-full mb-4  py-2 pl-3  rounded-lg ${touched.password && errors.password ? 'border-2 border-red-500' : ''}`}
+                                placeholder='Enter Password'
+                                value={values?.password}
+                                onChange={handleChange}
+                                onBlur={handleBlur}
+                            />
+                            <span className='absolute top-2.5 right-2.5' onClick={() => setShowPassword(!showPassword)}>
+                                {showPassword ?
+                                    <GoEyeClosed /> :
+                                    <RxEyeOpen />
+                                }
+                            </span>
+
+                            {touched.password && errors.password && (
+                                <ErrorTooltip
+                                    content={errors.password}
+                                    placement="right"
+                                />
+                            )}
+                        </div>
+
+                        <button type='submit' className='common-button bg-[#E3B577] w-full py-3 rounded-lg'>Submit</button>
 
                     </form>
 
