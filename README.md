@@ -9,12 +9,13 @@ Key Features:
 - featuere 4
 - featuere 5
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 NPM Packages that have been used:
 
-- package 1
-- package 2
-- package 3
-- package 4
+- Formik for form handling
+- yup for input validation
+- react-helmet for dynamic title
+- react icons for icon
+- react-toastify for toast
+- AOS package for animation
   
