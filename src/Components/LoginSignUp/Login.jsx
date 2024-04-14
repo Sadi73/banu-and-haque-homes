@@ -7,6 +7,8 @@ import { AuthContext } from '../../Providers/AuthProvider';
 import { useFormik } from 'formik';
 import * as Yup from "yup";
 import ErrorTooltip from '../ErrorTooltip/ErrorTooltip';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const Login = () => {
@@ -14,6 +16,8 @@ const Login = () => {
     const navigate = useNavigate();
 
     const [showPassword, setShowPassword] = useState(false);
+    const [loaderVisible, setloaderVisible] = useState(false);
+    const [authError, setAuthError] = useState(false);
 
     const { signInWithEmail, googleSignIn } = useContext(AuthContext);
 
@@ -27,11 +31,29 @@ const Login = () => {
             password: Yup.string().required("Password is Required")
         }),
         onSubmit: (values) => {
+            setloaderVisible(true);
             signInWithEmail(values?.email, values?.password)
                 .then(result => {
-                    navigate(location?.state ? location?.state : '/');
+                    setloaderVisible(false);
+                    toast.success('Log in successfull', {
+                        position: "top-right",
+                        autoClose: 1000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "colored",
+                        onClose: () => {
+                            navigate(location?.state ? location?.state : '/');
+                        }
+                    });
+
                 })
-                .catch(error => console.log(error))
+                .catch(error => {
+                    setloaderVisible(false);
+                    setAuthError(true);
+                })
         }
     });
 
@@ -46,10 +68,15 @@ const Login = () => {
 
     return (
         <>
+            <ToastContainer />
+
             <div className='container py-20'>
 
                 <div className='form-container bg-black bg-opacity-40 md:max-w-[500px] p-12 mx-auto'>
                     <h1 className='text-white text-5xl text-center mb-10 font-rancho'>Log <span className='text-[#E3B577]'>In!</span></h1>
+
+                    {authError &&
+                        <p className='text-red-600 font-medium mb-3'>Invalid Email or Password </p>}
 
                     <form onSubmit={handleSubmit}>
                         <div className='relative'>
@@ -96,6 +123,8 @@ const Login = () => {
                         </div>
 
                         <button type='submit' className='common-button bg-[#E3B577] w-full py-3 rounded-lg'>Submit</button>
+
+                        {loaderVisible && <span className="loading loading-dots loading-lg"></span>}
 
                     </form>
 

@@ -4,7 +4,7 @@ import { AuthContext } from '../../Providers/AuthProvider';
 import './Navbar.css';
 
 const Navbar = () => {
-    const { user, logOut, loading } = useContext(AuthContext);
+    const { user, logOut } = useContext(AuthContext);
 
     const navList =
         <>
@@ -16,7 +16,7 @@ const Navbar = () => {
         logOut()
             .then()
             .catch()
-    }
+    };
 
     return (
         <div className="navbar bg-base-100 bg-opacity-80 fixed z-10">
@@ -40,14 +40,13 @@ const Navbar = () => {
             {user ?
                 <div className="navbar-end">
                     <div className="dropdown dropdown-end">
-                        <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-                            <div className="w-10 rounded-full">
-                                <img alt="Tailwind CSS Navbar component" src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                        <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar placeholder">
+                            <div className="bg-neutral text-neutral-content rounded-full w-10">
+                                {user?.photoURL ? <img src={user?.photoURL} alt="" /> : <span className="text-xl">{user?.email[0].toUpperCase()}</span>}
                             </div>
                         </div>
                         <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
                             <li className='px-3 font-bold'> {user?.email}</li>
-                            {/* <li><a>Settings</a></li> */}
                             <li><a className='font-bold' onClick={handleLogOut}>Logout</a></li>
                         </ul>
                     </div>

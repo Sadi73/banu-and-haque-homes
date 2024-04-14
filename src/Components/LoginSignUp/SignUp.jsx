@@ -7,6 +7,8 @@ import ErrorTooltip from '../ErrorTooltip/ErrorTooltip';
 import { AuthContext } from '../../Providers/AuthProvider';
 import { GoEyeClosed } from 'react-icons/go';
 import { RxEyeOpen } from 'react-icons/rx';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const SignUp = () => {
     const navigate = useNavigate()
@@ -14,6 +16,8 @@ const SignUp = () => {
     const { createUserWithEmail } = useContext(AuthContext);
 
     const [showPassword, setShowPassword] = useState(false);
+    const [errorMessage, setErrorMessage] = useState('');
+    const [loaderVisible, setLoaderVisible] = useState(false);
 
     const { values, setValues, handleSubmit, handleBlur, handleChange, errors, setErrors, touched } = useFormik({
         initialValues: {
@@ -27,28 +31,49 @@ const SignUp = () => {
             email: Yup.string().required("Email is Required"),
             password: Yup.string()
                 .required("Password is Required")
-                .min(6, "Password must be at least 6 characters long"),
+                .min(6, "Password must be at least 6 characters long")
+                .matches(/^(?=.*[a-z])(?=.*[A-Z])/, "Password must contain at least one uppercase letter and one lowercase letter"),
             confirmPassword: Yup.string()
                 .required("Confirm Password is Required")
                 .oneOf([Yup.ref('password'), null], 'Passwords must match'),
 
         }),
         onSubmit: (values) => {
+            setLoaderVisible(true);
             createUserWithEmail(values?.email, values?.password)
                 .then(result => {
-                    console.log(result.user);
-                    navigate('/')
+                    setLoaderVisible(false);
+                    toast.success('You have successfully registered', {
+                        position: "top-right",
+                        autoClose: 1000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "colored",
+                        onClose: () => {
+                            navigate('/');
+                        }
+                    });
                 })
-                .catch(error => console.log(error))
+                .catch(error => {
+                    setLoaderVisible(false);
+                    setErrorMessage(error?.message.includes('auth/email-already-in-use') ? 'This email has already been used' : error?.message);
+                })
         }
     });
 
     return (
         <>
+            <ToastContainer />
+
             <div className='container py-20'>
 
                 <div className='form-container bg-black bg-opacity-40 md:max-w-[500px] p-12 mx-auto'>
                     <h1 className='text-white text-5xl text-center mb-10 font-rancho'>Sign <span className='text-[#E3B577]'>Up!</span></h1>
+
+                    {errorMessage !== '' && <p className='text-red-600 font-medium mb-3'>{errorMessage}</p>}
 
                     <form onSubmit={handleSubmit}>
 
@@ -147,6 +172,8 @@ const SignUp = () => {
                         </div>
 
                         <button type='submit' className='common-button bg-[#E3B577] w-full py-3 rounded-lg'>Submit</button>
+
+                        {loaderVisible && <span className="loading loading-dots loading-lg"></span>}
 
                     </form>
 
