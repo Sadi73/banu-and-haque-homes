@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 
 const Reviews = () => {
 
@@ -12,6 +13,10 @@ const Reviews = () => {
 
     return (
         <div className=' grid grid-cols-1 lg:grid-cols-2 gap-5 pt-32 md:w-[60%] mx-auto'>
+            <Helmet>
+                <title>Reviews - Banu & Haque</title>
+            </Helmet>
+
             {allReviews.map((review, index) =>
                 <div
                     key={review?.id}

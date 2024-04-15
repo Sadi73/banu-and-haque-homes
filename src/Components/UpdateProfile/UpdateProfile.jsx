@@ -8,6 +8,7 @@ import auth from '../../firebase/firebase.config';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
 const UpdateProfile = () => {
 
@@ -56,6 +57,9 @@ const UpdateProfile = () => {
     return (
         <>
             <ToastContainer />
+            <Helmet>
+                <title>Profile - Banu & Haque</title>
+            </Helmet>
 
             <div className='container py-20'>
 
