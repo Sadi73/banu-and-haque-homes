@@ -43,7 +43,7 @@ const UpdateProfile = () => {
                         theme: "colored",
                         // transition: Bounce,
                         onClose: () => {
-                            navigate('/');
+                            window.location.reload();
                         }
                     });
 

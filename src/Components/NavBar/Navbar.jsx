@@ -40,6 +40,7 @@ const Navbar = () => {
 
             {user ?
                 <div className="navbar-end">
+                    {user?.displayName && <p>{user?.displayName}</p>}
                     <div className="dropdown dropdown-end">
                         <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar placeholder">
                             <div className="bg-neutral text-neutral-content rounded-full w-10">
