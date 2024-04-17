@@ -21,13 +21,11 @@ const SignUp = () => {
 
     const { values, setValues, handleSubmit, handleBlur, handleChange, errors, setErrors, touched } = useFormik({
         initialValues: {
-            fullName: '',
             email: '',
             password: '',
             confirmPassword: ''
         },
         validationSchema: Yup.object({
-            // fullName: Yup.string().required("Name is Required"),
             email: Yup.string().required("Email is Required"),
             password: Yup.string()
                 .required("Password is Required")
@@ -77,22 +75,6 @@ const SignUp = () => {
 
                     <form onSubmit={handleSubmit}>
 
-                        <div>
-                            <input
-                                type="text"
-                                name='fullName'
-                                className='w-full mb-4 py-2 pl-3 rounded-lg'
-                                placeholder='Enter Your Name'
-                                value={values?.fullName}
-                                onChange={handleChange}
-                            />
-                            {touched.fullName && errors.fullName && (
-                                <ErrorTooltip
-                                    content={errors.fullName}
-                                    placement="right"
-                                />
-                            )}
-                        </div>
 
                         <div className='relative'>
                             <input

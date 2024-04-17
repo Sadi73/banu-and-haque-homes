@@ -52,7 +52,11 @@ const Navbar = () => {
                             <li><a className='font-bold' onClick={handleLogOut}>Logout</a></li>
                         </ul>
                     </div>
-                </div> : <div className="navbar-end"><Link to='/login' className="btn">Login</Link></div>
+                </div> :
+                <div className="navbar-end gap-2">
+                    <button><Link to='/login' className="border-2 border-green-700 text-green-700 px-3 py-2 rounded-lg">Login</Link></button>
+                    <button> <Link to='/sign-up' className="border-2 border-green-700 text-green-700 px-3 py-2 rounded-lg">Register</Link></button>
+                </div>
 
             }
 

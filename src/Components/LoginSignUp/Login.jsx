@@ -9,6 +9,7 @@ import * as Yup from "yup";
 import ErrorTooltip from '../ErrorTooltip/ErrorTooltip';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { FaGithub } from 'react-icons/fa';
 
 
 const Login = () => {
@@ -19,7 +20,7 @@ const Login = () => {
     const [loaderVisible, setloaderVisible] = useState(false);
     const [authError, setAuthError] = useState(false);
 
-    const { signInWithEmail, googleSignIn } = useContext(AuthContext);
+    const { signInWithEmail, googleSignIn, githubSignIn } = useContext(AuthContext);
 
     const { values, setValues, handleSubmit, handleBlur, handleChange, errors, setErrors, touched } = useFormik({
         initialValues: {
@@ -59,6 +60,14 @@ const Login = () => {
 
     const handleGoogleSignIn = () => {
         googleSignIn()
+            .then(result => {
+                navigate(location?.state ? location?.state : '/');
+            })
+            .catch(error => console.log(error))
+    };
+
+    const handleGithubSignIn = () => {
+        githubSignIn()
             .then(result => {
                 navigate(location?.state ? location?.state : '/');
             })
@@ -139,7 +148,12 @@ const Login = () => {
                             />
                         </button>
 
-                        {/* <button><FaFacebook className='text-white text-2xl' /></button> */}
+                        <button>
+                            <FaGithub
+                                className='text-white text-2xl'
+                                onClick={handleGithubSignIn}
+                            />
+                        </button>
                     </div>
 
                     <div>
